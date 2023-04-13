@@ -1,11 +1,11 @@
 const{ CityRepository } =require('../repository/index');
 
-class CityService {
+class CityServices {
     constructor () {
         this.cityRepository = new CityRepository();
     }
 
-    async createCity() {
+    async createCity(data) {
         try {
             const city = await this.cityRepository.createCity(data);
             return city;
@@ -46,4 +46,4 @@ class CityService {
     }
 }
 
-module.exports = CityService;
+module.exports = CityServices;
