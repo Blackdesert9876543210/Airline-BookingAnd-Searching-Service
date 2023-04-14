@@ -1,8 +1,11 @@
 const{ City } = require('../models/index');
+require('sequelize');
+
 
 class CityRepository {
     async createCity({ name }){
         try {
+            console.log("creating a city in repository layer");
             const city = await City.create({
                  name
                });
@@ -53,12 +56,11 @@ class CityRepository {
 
     async getCity(cityId){
         try {
+            console.log("trying get city in the repository layer")
             const city = await City.findByPk(cityId);
-            return city;
-            // const city = await City.findOne({where : {
-            //     id : cityId
-            // }});
-            // return true;
+            // return city;
+            return true;
+            
         } catch (error) {
             console.log("some error occured in the repository layer");
             throw {error}; 

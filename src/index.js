@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require("body-parser");
 
-
+const { City } = require('./models/index');
 const {PORT} = require('./config/serverConfig');
 const ApiRoutes = require('./routes/index');
 const CityReopsitory = require('./repository/city-repository');
@@ -15,7 +15,7 @@ const setupAndStartSever = async ()=>{
 
     app.use('/api', ApiRoutes);
 
-    app.listen(PORT,()=>{
+    app.listen(PORT,async ()=>{
         console.log(`server start at the port ${PORT}`);
     });
 
