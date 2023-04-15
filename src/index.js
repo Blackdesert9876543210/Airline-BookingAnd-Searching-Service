@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const {PORT} = require('./config/serverConfig');
 const ApiRoutes = require('./routes/index');
 
-const db = require('./models/index');
+const {db,Airplane} = require('./models/index');
 
 const setupAndStartSever = async ()=>{
     // create the express object
@@ -20,6 +20,10 @@ const setupAndStartSever = async ()=>{
        if(process.env.SYNC_DB){
         db.sequelize.sync({alter: true});
        }
+       await Airplane.create({
+         modelNumber: 'Airbus A330',
+         capacity: 150
+       })
     });
 
 }
