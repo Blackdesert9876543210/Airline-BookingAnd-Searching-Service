@@ -15,15 +15,15 @@ const setupAndStartSever = async ()=>{
 
     app.use('/api', ApiRoutes);
 
-    app.listen(PORT,async ()=>{
+    app.listen(PORT, async ()=>{
         console.log(`server start at the port ${PORT}`);
        if(process.env.SYNC_DB){
         db.sequelize.sync({alter: true});
        }
-       await Airplane.create({
-         modelNumber: 'Airbus A330',
-         capacity: 150
-       })
+    //    await Airplane.create({
+    //      modelNumber: 'Airbus A330',
+    //      capacity: 150
+    //    })
     });
 
 }
