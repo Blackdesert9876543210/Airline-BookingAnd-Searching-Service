@@ -5,6 +5,7 @@ const { Op } = require('sequelize');
 class CityRepository {
     async createCity({ name }){
         try {
+            console.log(City);
             console.log("creating a city in repository layer");
             const city = await City.create({
                  name
