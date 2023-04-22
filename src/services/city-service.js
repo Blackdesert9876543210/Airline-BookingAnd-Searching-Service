@@ -1,4 +1,4 @@
-const{ CityRepository } =require('../repository/index');
+const{ CityRepository } = require('../repository/index');
 
 class CityServices {
     constructor () {
@@ -50,7 +50,7 @@ class CityServices {
             const cities = await this.cityRepository.getAllCities({name : filter.name});
             return cities;
         } catch (error) {
-            console.log("something went wrong in the service layer");
+            console.log("something went wrong in the service dj layer");
             throw{error};
         }
     }
